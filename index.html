@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Alunos - Desenvolvimento de Sistemas</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      color: #e5e7eb;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .header-escola {
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 20px;
+      background: rgba(2, 6, 23, 0.6);
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .header-escola img {
+      max-width: 120px;
+      height: auto;
+      display: block;
+      margin: 0 auto 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .curso {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #cbd5f5;
+    }
+
+    .badge-curso {
+      display: inline-block;
+      background: linear-gradient(90deg, #38bdf8, #22d3ee);
+      color: #0f172a;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .turmas {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .turma {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 18px;
+      width: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .turma::before {
+      content: '</>';
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 11px;
+      color: #334155;
+      font-family: monospace;
+    }
+
+    .turma h3 {
+      text-align: center;
+      color: #22d3ee;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #020617;
+      border-left: 4px solid #38bdf8;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 6px;
+      color: #020617;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+      padding: 16px;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer code {
+      background: #1e293b;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="header-escola">
+      <img src="logo.jpg" alt="Logo da Escola - Colégio Morozowski" />
+      <h1>Lista de Alunos</h1>
+      <p class="badge-curso">Técnico em Desenvolvimento de Sistemas</p>
+      <p style="margin: 0; font-size: 0.95rem; color: #94a3b8;">Colégio Estadual Maria de Lurdes Rodrigues Morozowski</p>
+    </header>
+
+    <div class="curso">
+      <p><strong>Professor:</strong> Luccas Kayure Crisanto</p>
+      <p style="font-size: 0.9rem; color: #64748b;">Atividade: Git • Clone • Commit • Pull Request</p>
+    </div>
+
+    <div class="turmas">
+
+      <!-- 1º ANO -->
+      <div class="turma">
+        <h3>1º Ano</h3>
+        <ul id="turma1">
+          <li>Exemplo: João Silva</li>
+        </ul>
+        <button class="btn" onclick="adicionarAluno('turma1')">
+          Adicionar meu nome
+        </button>
+      </div>
+
+      <!-- 2º ANO -->
+      <div class="turma">
+        <h3>2º Ano</h3>
+        <ul id="turma2">
+          <li>Exemplo: Maria Oliveira</li>
+        </ul>
+        <button class="btn" onclick="adicionarAluno('turma2')">
+          Adicionar meu nome
+        </button>
+      </div>
+
+      <!-- 3º ANO -->
+      <div class="turma">
+        <h3>3º Ano</h3>
+        <ul id="turma3">
+          <li>Exemplo: Carlos Pereira</li>
+        </ul>
+        <button class="btn" onclick="adicionarAluno('turma3')">
+          Adicionar meu nome
+        </button>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>Atividade prática: <code>git clone</code> • <code>commit</code> • <code>Pull Request</code> — Desenvolvimento de Sistemas</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function adicionarAluno(turmaId) {
+      const nome = prompt("Digite seu nome completo:");
+
+      if (nome && nome.trim() !== "") {
+        const ul = document.getElementById(turmaId);
+        const li = document.createElement("li");
+        li.textContent = nome;
+        ul.appendChild(li);
+      }
+    }
+  </script>
+
+</body>
+</html>
